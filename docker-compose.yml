@@ -15,9 +15,9 @@ services:
     image: nginx:alpine
     container_name: laravel-webserver
     ports:
-      - "8081:80"  # corrigido para 8080
+      - "8081:80"  
     volumes:
-      - ./laravel:/var/www/html
+      - ./:/var/www/html
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - app
