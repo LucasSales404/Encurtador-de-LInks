@@ -15,7 +15,8 @@ class ProfileController extends Controller
      * Display the user's profile form.
      */
     public function index(){
-        return view('index');
+        $user = Auth::user();
+        return view('index', compact('user'));
     }
 
 
