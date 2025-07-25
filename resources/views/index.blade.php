@@ -1,10 +1,11 @@
 @include('partials.app')
 @include('components.card-view')
+@include('components.loading-screen')
 <main>
     <section
         class=" flex flex-col items-center justify-center gap-[10px] h-[calc(100vh-80px)] w-full bg-neutral-900 text-white py-[20px]">
         <div class="title-section">
-            <h2>Encurtar Link</h2>
+            <h2 class="font-medium text-2xl">Encurte seu link aqui</h2>
         </div>
         <form action="" id="formEncurtar" class="flex flex-col gap-[10px] w-[400px]">
             <div class="input-content w-[400px] flex flex-col gap-[2px] relative">
@@ -23,7 +24,7 @@
             </div>
             <p class="text-[13px] text-neutral-300">Seu link ficará assim: <span id="caminho">https://encurtar.link/</span></p>
             <button data-urlEncurta="https://encurtar.link/" id="buttonEncurtar" type="submit" style="background-color: rgb(0, 0, 195)"
-                class="rounded-[3px] border-0 w-full h-[45px]">Encurtar</button>
+                class="rounded-[3px] border-0 w-full h-[45px] font-medium">Encurtar</button>
         </form>
     </section>
 </main>

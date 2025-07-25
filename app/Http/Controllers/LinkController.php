@@ -3,26 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LinkRequest;
+use Illuminate\Support\Str;
+use App\Models\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LinkController extends Controller
 {
 
-    public function store(LinkRequest $request, )
+    public function store(LinkRequest $request)
     {
         $slug = $request->caminho ?? Str::random(6);
 
-        while (Link::where('slug', $slug)->exists()) {
+        while (DB::table('link_user')->where('slug', $slug)->exists()) {
             $slug = Str::random(6);
         }
-         $link = Link::create([
-            'user_id' => auth()->id(),
-            'original_url' => $request->url,
-            'slug' => $slug
+
+        $link = Link::firstOrCreate([
+            'original_url' => $request->url
         ]);
-           return response()->json([
+
+        auth()->user()->links()->syncWithoutDetaching([$link->id => ['slug' => $slug]]);
+
+        return response()->json([
             'short_url' => url($slug),
             'link' => $link
         ]);
     }
+
 }

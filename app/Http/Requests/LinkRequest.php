@@ -23,7 +23,8 @@ class LinkRequest extends FormRequest
     {
         return [
             'url' => 'required|url',
-            'caminho' => 'string|max:255|unique:links,slug'
+            'caminho' => 'string|unique:link_user,slug'
+
         ];
     }
 }
