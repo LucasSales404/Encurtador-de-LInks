@@ -1,3 +1,6 @@
+@include('components.card-view')
+@include('components.loading-screen')
+@include('components.alert')
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -63,6 +66,8 @@
     @vite('resources/js/index.js')
     @vite('resources/js/menuBar.js')
     @vite('resources/js/logout.js')
+    @vite('resources/js/alert.js')
+    @vite('resources/js/showUrl.js')
 </body>
 
 </html>

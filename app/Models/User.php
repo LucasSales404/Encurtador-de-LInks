@@ -47,8 +47,8 @@ class User extends Authenticatable
     }
     public function links()
     {
-        return $this->belongsToMany(Link::class)->withPivot('slug')->withTimestamps();
+        return $this->belongsToMany(Link::class)->withPivot('slug', 'clicks')->withTimestamps();
+}
     }
 
 
-}

@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('link_id')->constrained()->onDelete('cascade');
             $table->string('slug')->unique();
+            $table->unsignedBigInteger('clicks')->default(0);
             $table->timestamps();
         });
 
