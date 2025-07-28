@@ -20,5 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::get('index', [ProfileController::class,'index'])->name('index');
     Route::post('store', [LinkController::class,'store'])->name('store');
 });
-Route::get('/{slug}', [RedirectController::class,'redirect'])->name('redirect');
+
+
+
+ Route::get('/r/{slug}', [RedirectController::class,'redirect'])->name('redirect');
 require __DIR__.'/auth.php';

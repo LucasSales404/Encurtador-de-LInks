@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
     <title>Encurta Link</title>
 </head>
@@ -24,11 +24,11 @@
                     <div class="icon-profile">
                         <div
                             class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-neutral-700">
-                            <p>{{substr($user->name, 0, 1)}}</p>
+                            <p>{{ substr($user->name, 0, 1) }}</p>
                         </div>
                     </div>
                     <div class="name-profile flex justify-center items-center gap-[2px] cursor-pointer">
-                        <p>{{$user->name}}</p>
+                        <p>{{ $user->name }}</p>
                         <span class="drop-menu inline-block rotate-90 relative top-[2px]">></span>
                     </div>
                 </div>
@@ -38,12 +38,19 @@
                     <div
                         class="triangle absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent border-b-neutral-500">
                     </div>
+                    <div class="flex flex-col gap-[5px]">
+                        <button class="border-b-[1px] text-start px-4 hover:bg-neutral-700 cursor-pointer">
+                            Editar Perfil
+                        </button>
 
-                    <ul>
-                        <li class="border-b-[1px] hover:bg-neutral-700 cursor-pointer px-4"><a href="/profile">Editar
-                                Perfil</a></li>
-                        <li class="hover:bg-neutral-700 cursor-pointer px-4"><a href="/logout">Sair</a></li>
-                    </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+                            @csrf
+                        </form>
+                        <button class="buttonLogout text-start px-4 hover:bg-neutral-700 cursor-pointer">
+                            Sair
+                        </button>
+                    </div>
+
                 </div>
             </div>
             <ul class="flex gap-4">
@@ -55,6 +62,7 @@
     @vite('resources/js/pasteLink.js')
     @vite('resources/js/index.js')
     @vite('resources/js/menuBar.js')
+    @vite('resources/js/logout.js')
 </body>
 
 </html>
