@@ -1,15 +1,20 @@
 import { showAlert } from "./alert.js";
+import { showUrl } from "./showUrl.js";
 
 const inputUrl = document.querySelector("#inputUrl");
 const personalizarLink = document.querySelector("#personalizarLink");
 const caminho = document.querySelector("#caminho");
 const screenLoading = document.querySelector("#loadingScreen");
-personalizarLink.addEventListener("input", () => {
-    caminho.textContent = "https://encurtar.link/" + personalizarLink.value;
-});
+if (personalizarLink) {
+    personalizarLink.addEventListener("input", () => {
+        caminho.textContent = "https://encurtar.link/" + personalizarLink.value;
+    });
+}
 const buttonCopy = document.querySelector("#buttonCopy");
 const formEncurtar = document.querySelector("#formEncurtar");
-let urlEncurtada = '';
+let urlEncurtada = "";
+if(formEncurtar){
+
 formEncurtar.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -22,6 +27,7 @@ formEncurtar.addEventListener("submit", async (e) => {
         const token = document
             .querySelector('meta[name="csrf-token"]')
             .getAttribute("content");
+        console.log("Dados enviados:", data);
 
         const response = await fetch("/store/", {
             method: "POST",
@@ -33,25 +39,34 @@ formEncurtar.addEventListener("submit", async (e) => {
             body: JSON.stringify(data),
         });
 
-        if (!response.ok) throw new Error("Erro ao enviar link");
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.log("Erro do backend:", errorData);
+            showAlert(errorData.message || "Erro ao enviar link");
+            throw new Error("Erro ao enviar link");
+        }
 
         const resultado = await response.json();
-        screenLoading.classList.add("hidden");
-        showAlert(resultado.short_url);
+        showUrl(resultado.short_url);
         urlEncurtada = resultado.short_url;
-
     } catch (err) {
         console.error(err);
         showAlert("Erro ao encurtar link");
+        buttonCopy.classList.add("hidden");
+    } finally {
+        screenLoading.classList.add("hidden"); 
     }
 });
+}
 
 document.addEventListener("click", (e) => {
     if (e.target.id === "buttonCopy") {
+        if (buttonCopy.textContent === "Copiado") {
+            return;
+        }
         navigator.clipboard.writeText(urlEncurtada);
         buttonCopy.textContent = "Copiado";
         buttonCopy.classList.remove("bg-neutral-700");
         buttonCopy.style.backgroundColor = "gray";
     }
 });
-

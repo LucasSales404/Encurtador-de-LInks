@@ -26,9 +26,21 @@ class LinkController extends Controller
         auth()->user()->links()->syncWithoutDetaching([$link->id => ['slug' => $slug]]);
 
         return response()->json([
-            'short_url' => url($slug),
+            'short_url' => route('redirect', ['slug' => $slug]),
             'link' => $link
         ]);
     }
-
+    public function showLinks()
+    {
+        $user = auth()->user();
+        $links = auth()->user()->links()->get();
+        return view('links', compact('user', 'links'));
+    }
+    public function destroy(Link $link)
+    {
+        $link->delete();
+        return response()->json([
+            'sucess' => true,
+            'message' => 'Link deletado com sucesso']);
+    }
 }

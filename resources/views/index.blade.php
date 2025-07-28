@@ -1,6 +1,4 @@
 @include('partials.app')
-@include('components.card-view')
-@include('components.loading-screen')
 <main class="">
     <section
         class="px-24 flex-col flex items-center justify-between gap-32 pt-28 pb-14 h-full w-full bg-neutral-900 text-white py-[20px]">
@@ -11,7 +9,7 @@
             <form action="" id="formEncurtar" class="flex flex-col gap-[10px] w-[400px]">
                 <div class="input-content w-[400px] flex flex-col gap-[2px] relative">
                     <label for="url">URL</label>
-                    <input id="inputUrl" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px]"
+                    <input id="inputUrl" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px]" required
                         placeholder="Insira seu link aqui" type="text" name="url" id="url">
                     <div id="buttonPaste"
                         class="paste w-[45px] h-[45px] cursor-pointer absolute top-[25px] right-0 flex items-center justify-center">

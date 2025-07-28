@@ -23,8 +23,8 @@ class LinkRequest extends FormRequest
     {
         return [
             'url' => 'required|url',
-            'caminho' => 'string|unique:link_user,slug'
-
+            'caminho' => 'nullable|string|unique:link_user,slug'
         ];
     }
+
 }

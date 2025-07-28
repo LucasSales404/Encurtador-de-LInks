@@ -11,7 +11,7 @@ class Link extends Model
     ];
     public function users()
 {
-    return $this->belongsToMany(User::class)->withPivot('slug')->withTimestamps();
+     return $this->belongsToMany(User::class)->withPivot('slug', 'clicks')->withTimestamps();
 }
 
 }
