@@ -14,7 +14,8 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function index(){
+    public function index()
+    {
         $user = Auth::user();
         return view('index', compact('user'));
     }
@@ -42,6 +43,7 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
 
     /**
      * Delete the user's account.
