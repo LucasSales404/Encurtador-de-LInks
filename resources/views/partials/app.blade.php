@@ -22,39 +22,37 @@
             </a>
         </div>
         <nav class=" flex gap-7 justify-center items-center font-medium w-full bg-azulPadrao  h-[70px]">
-            <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
-                <div class="profile flex items-center gap-[4px]">
-                    <div class="icon-profile">
-                        <div class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-blue-500">
-                            <p>{{ substr($user->name, 0, 1) }}</p>
+            @auth
+                <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
+                    <div class="profile flex items-center gap-[4px]">
+                        <div class="icon-profile">
+                            <div class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-blue-500">
+                                <p>{{ substr($user->name, 0, 1) }}</p>
+                            </div>
+                        </div>
+                        <div class="name-profile flex justify-center items-center gap-[2px] cursor-pointer ">
+                            <p class="hover:text-neutral-300">{{ $fullName }}</p>
+                            <span class="drop-menu inline-block rotate-90 relative top-[2px]">></span>
                         </div>
                     </div>
-                    <div class="name-profile flex justify-center items-center gap-[2px] cursor-pointer ">
-                        <p class="hover:text-neutral-300">{{ $fullName }}</p>
-                        <span class="drop-menu inline-block rotate-90 relative top-[2px]">></span>
+                    <div id="profileBar"
+                        class="hidden bg-azulPadrao rounded-[3px] absolute w-[150px] h-[80px] flex flex-col justify-center top-[55px] left-[0px]">
+                        <div class="flex flex-col justify-center">
+                            <button
+                                class="profile-edit border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-800 cursor-pointer">
+                                Editar Perfil
+                            </button>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+                                @csrf
+                            </form>
+                            <button class="buttonLogout text-start py-2 px-4 hover:bg-blue-800 cursor-pointer">
+                                Sair
+                            </button>
+                        </div>
+
                     </div>
                 </div>
-                <div id="profileBar"
-                    class="hidden bg-azulPadrao rounded-[3px] absolute w-[150px] h-[80px] flex flex-col justify-center top-[80px] left-[0px]">
-
-                    <div
-                        class="triangle border-b-azulPadrao absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent">
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <button
-                            class="profile-edit border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-700 cursor-pointer">
-                            Editar Perfil
-                        </button>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-                            @csrf
-                        </form>
-                        <button class="buttonLogout text-start py-2 px-4 hover:bg-blue-700 cursor-pointer">
-                            Sair
-                        </button>
-                    </div>
-
-                </div>
-            </div>
+            @endauth
             <ul class="flex gap-4">
                 <li class="hover:text-neutral-300"><a href="/index">Início</a></li>
                 <li class="hover:text-neutral-300"><a href="/links">Meus Links</a></li>
