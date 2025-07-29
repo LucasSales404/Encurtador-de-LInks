@@ -1,4 +1,5 @@
 import { showAlert } from "./alert.js";
+import { showLoadingScreen } from "./loading-screen.js";
 import { showUrl } from "./showUrl.js";
 
 const inputUrl = document.querySelector("#inputUrl");
@@ -22,7 +23,7 @@ formEncurtar.addEventListener("submit", async (e) => {
         url: inputUrl.value,
         caminho: personalizarLink.value,
     };
-    screenLoading.classList.remove("hidden");
+    showLoadingScreen("Encurtando seu link");
     try {
         const token = document
             .querySelector('meta[name="csrf-token"]')

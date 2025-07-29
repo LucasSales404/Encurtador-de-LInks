@@ -1,17 +1,10 @@
-const contentAlert = document.querySelectorAll(".content-alert");
-
-contentAlert.forEach((content) => {
-    const  buttonOk = content.querySelector(".button-ok");
-    if(buttonOk){
-        buttonOk.addEventListener("click", () => {
-            content.classList.add("hidden");
-        })
-    }
-})
-export function showAlert (text){
-  contentAlert.forEach((content) => {
-      const cardContent = content.querySelector(".text-card");
-      cardContent.textContent = text;
-      content.classList.remove("hidden");
-  })
-};
+const contentAlert = document.querySelector(".content-alert");
+const buttonOk = document.querySelector(".button-ok");
+buttonOk.addEventListener("click", () => {
+    contentAlert.classList.add("hidden");
+});
+export function showAlert(text) {
+    contentAlert.classList.remove("hidden");
+    const textCard = document.querySelector(".text-card");
+    textCard.textContent = text;
+}

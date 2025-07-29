@@ -1,12 +1,12 @@
 import { showAlert } from "./alert.js";
-
+import { showLoadingScreen } from "./loading-screen.js";
+const screenLoading = document.querySelector("#loadingScreen");
 const buttonDelete = document.querySelectorAll(".button-delete");
 buttonDelete.forEach((button) => {
     button.addEventListener("click", async () => {
         const id = button.dataset.id;
-        alert(id);
         if(!confirm("Tem certeza que deseja excluir o link?")) return;
-
+        showLoadingScreen('Excluindo seu link...');
         try {
             const token = document
                 .querySelector('meta[name="csrf-token"]')
@@ -32,6 +32,8 @@ buttonDelete.forEach((button) => {
             }
         } catch (err) {
             console.error(err);
+        }finally {
+            screenLoading.classList.add("hidden");
         }
     });
 });
