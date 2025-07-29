@@ -9,9 +9,9 @@
             <div class="title-section flex justify-center h-[60px]">
                 <h2 class="font-medium text-2xl">Encurte seu link aqui</h2>
             </div>
-            <form action="" id="formEncurtar" class="flex flex-col gap-[10px] w-[400px]">
-                <div class="input-content w-[400px] flex flex-col gap-[2px] relative">
-                    <label for="url">URL</label>
+            <form action="" id="formEncurtar" class="flex flex-col gap-[10px] w-[500px]">
+                <div class="input-content w-[500px] flex flex-col gap-[2px] relative">
+                    <label class="font-medium" for="url">URL</label>
                     <input id="inputUrl" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px]" required
                         placeholder="Insira seu link aqui" type="text" name="url" id="url">
                     <div id="buttonPaste"
@@ -19,21 +19,20 @@
                         <img class="max-w-[20px]" src="{{ asset('images/icon-paste.png') }}" alt="">
                     </div>
                 </div>
-                <div class="input-content w-[400px] flex flex-col gap-[2px]">
-                    <label for="url">Personalizar Link</label>
+                <div class="input-content w-[500px] flex flex-col gap-[2px]">
+                    <label class="font-medium" for="url">Personalizar Link</label>
                     <input id="personalizarLink" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px]"
                         placeholder="Defina o caminho personalizado" type="text" name="url" id="url">
                 </div>
                 <p class="text-[13px] text-neutral-300">Seu link ficará assim: <span
-                        id="caminho">https://encurtar.link/</span></p>
+                        id="caminho">https://SnapLink/</span></p>
                 <button data-urlEncurta="https://encurtar.link/" id="buttonEncurtar" type="submit"
-                    style="background-color: rgb(0, 0, 195)"
-                    class="rounded-[3px] border-0 w-full h-[45px] font-medium">Encurtar</button>
+                    class="rounded-[3px] border-0 w-full h-[45px] font-medium bg-azulPadrao hover:bg-blue-700">Encurtar</button>
             </form>
         </div>
         <div class="cards-features w-[750px] h-[300px] flex gap-[15px]">
             <div
-                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col border-[3px] rounded-[5px] gap-[12px]">
+                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
                     <h1 class="font-medium text-[18px] ">Estatisticas</h1>
                 </div>
@@ -46,7 +45,7 @@
             </div>
 
             <div
-                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col border-[3px] rounded-[5px] gap-[12px]">
+                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
                     <h1 class="font-medium text-[18px] ">Site Grátis</h1>
                 </div>
@@ -60,7 +59,7 @@
             </div>
 
             <div
-                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col border-[3px] rounded-[5px] gap-[12px]">
+                class="card w-[250px] h-[250px] bg-neutral-800 p-6 flex justify-center items-center flex-col rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
                     <h1 class="font-medium text-[18px] ">URL Curtas</h1>
                 </div>
