@@ -15,21 +15,21 @@
 </head>
 
 <body class="bg-neutral-900 text-white relative">
-    <header class="flex items-center justify-between w-full h-[80px] px-24 bg-neutral-950">
+    <header class="flex items-center justify-between w-full h-[80px] px-24" style="background-color: rgb(0, 0, 195)">
         <div class="name-site">
             <h1 class="font-signika text-xl font-bold">SnapLink</h1>
         </div>
-        <nav class=" flex gap-2 justify-center items-center">
+        <nav class=" flex gap-2 justify-center items-center font-medium">
             <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
-                <div class="profile w-[150px] flex items-center gap-[4px]">
+                <div class="profile flex items-center gap-[4px]">
                     <div class="icon-profile">
                         <div
-                            class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-neutral-700">
+                            class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-blue-500">
                             <p>{{ substr($user->name, 0, 1) }}</p>
                         </div>
                     </div>
-                    <div class="name-profile flex justify-center items-center gap-[2px] cursor-pointer">
-                        <p>{{ $user->name }}</p>
+                    <div class="name-profile flex justify-center items-center gap-[2px] cursor-pointer ">
+                        <p>{{ $fullName }}</p>
                         <span class="drop-menu inline-block rotate-90 relative top-[2px]">></span>
                     </div>
                 </div>
