@@ -15,6 +15,9 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 signika: ['Signika', 'sans-serif'],
             },
+            colors:{
+                azulPadrao: "rgb(0, 0, 195)"
+            }
         },
     },
 

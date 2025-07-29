@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LinkRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Link;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -32,9 +34,15 @@ class LinkController extends Controller
     }
     public function showLinks()
     {
-        $user = auth()->user();
+        $user = Auth::user();
+        $name = $user->name;
+        $parts = explode(' ', $name);
+        $firstName = $parts[0] ?? '';
+        $lastName = $parts[1] ?? '';
+        $fullName = trim($firstName . ' ' . $lastName);
         $links = auth()->user()->links()->get();
-        return view('links', compact('user', 'links'));
+        
+        return view('links', compact('user', 'links', 'fullName'));
     }
     public function destroy(Link $link)
     {
