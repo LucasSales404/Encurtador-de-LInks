@@ -16,7 +16,7 @@ export default {
                 signika: ['Signika', 'sans-serif'],
             },
             colors:{
-                azulPadrao: "rgb(0, 0, 195)"
+                azulPadrao: "#00328C"
             }
         },
     },

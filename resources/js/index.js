@@ -8,7 +8,7 @@ const personalizarLink = document.querySelector("#personalizarLink");
 const caminho = document.querySelector("#caminho");
 if (personalizarLink) {
     personalizarLink.addEventListener("input", () => {
-        caminho.textContent = "https://encurtar.link/" + personalizarLink.value;
+        caminho.textContent = "https://SnapLink/" + personalizarLink.value;
     });
 }
 const buttonCopy = document.querySelector("#buttonCopy");

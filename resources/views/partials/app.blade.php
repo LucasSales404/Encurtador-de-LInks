@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
@@ -15,18 +15,17 @@
 </head>
 
 <body class="bg-neutral-900 text-white relative">
-    <header class="flex items-center justify-between w-full h-[80px] px-24 bg-azulPadrao">
-        <div class="name-site cursor-pointer">
+    <header class="flex items-center flex-col-reverse bg-azulPadrao relative w-full h-[190px]  justify-end">
+        <div class="name-site cursor-pointer w-full h-[120px] bg-neutral-800 flex justify-center items-center">
             <a href="/index">
-                <h1 class="font-signika text-xl font-bold">SnapLink</h1>
+                <img class="w-[220px]" src="{{ asset('images/logo.png') }}" alt="">
             </a>
         </div>
-        <nav class=" flex gap-2 justify-center items-center font-medium">
+        <nav class=" flex gap-7 justify-center items-center font-medium w-full bg-azulPadrao  h-[70px]">
             <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
                 <div class="profile flex items-center gap-[4px]">
                     <div class="icon-profile">
-                        <div
-                            class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-blue-500">
+                        <div class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-blue-500">
                             <p>{{ substr($user->name, 0, 1) }}</p>
                         </div>
                     </div>
@@ -35,19 +34,21 @@
                         <span class="drop-menu inline-block rotate-90 relative top-[2px]">></span>
                     </div>
                 </div>
-                <div id="profileBar" style="background-color: rgb(0, 0, 195)"
-                    class="hidden rounded-[3px] absolute w-[150px] h-[80px] flex flex-col justify-center top-[80px] left-[0px]">
+                <div id="profileBar"
+                    class="hidden bg-azulPadrao rounded-[3px] absolute w-[150px] h-[80px] flex flex-col justify-center top-[80px] left-[0px]">
 
                     <div
-                        class="triangle border-b-azulPadrao absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent">                    </div>
+                        class="triangle border-b-azulPadrao absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent">
+                    </div>
                     <div class="flex flex-col justify-center">
-                            <button class="profile-edit border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-700 cursor-pointer">
-                                Editar Perfil
-                            </button>
+                        <button
+                            class="profile-edit border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-700 cursor-pointer">
+                            Editar Perfil
+                        </button>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
                             @csrf
                         </form>
-                        <button  class="buttonLogout text-start py-2 px-4 hover:bg-blue-700 cursor-pointer">
+                        <button class="buttonLogout text-start py-2 px-4 hover:bg-blue-700 cursor-pointer">
                             Sair
                         </button>
                     </div>
@@ -57,12 +58,17 @@
             <ul class="flex gap-4">
                 <li class="hover:text-neutral-300"><a href="/index">Início</a></li>
                 <li class="hover:text-neutral-300"><a href="/links">Meus Links</a></li>
+                <li class="hover:text-neutral-300"><a href="/sobre">Sobre</a></li>
+                <li class="hover:text-neutral-300"><a href="/contato">Contato</a></li>
+                <li class="hover:text-neutral-300"><a href="/ajuda">Ajuda</a></li>
+                <li class="hover:text-neutral-300"><a href="/termos">Termos de uso</a></li>
+                <li class="hover:text-neutral-300"><a href="/politica">Politica de privacidade</a></li>
             </ul>
         </nav>
     </header>
     @vite('resources/js/menuBar.js')
     @vite('resources/js/logout.js')
-   
+
 </body>
 
 </html>
