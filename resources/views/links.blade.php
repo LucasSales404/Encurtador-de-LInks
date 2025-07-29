@@ -6,6 +6,7 @@
     <div class="title-section">
         <h1 class="font-medium text-2xl">Meus Links</h1>
     </div>
+    
     <div class="links flex flex-col gap-6 w-full">
         @foreach ($links as $link)
             @php
@@ -38,12 +39,10 @@
                 </div>
             </div>
         @endforeach
-        @if($links->count() == 0)
-            <div class="without-link w-full h-[300px] gap-[3px] flex flex-col justify-center items-center">
+            <div data-count="{{ $links->count() }}" class=" without-link w-full h-[300px] gap-[3px] flex flex-col justify-center items-center">
                 <img src="{{ asset('images/icon-robot.png') }}" alt="">
                 <h1 class="font-medium text-2xl">Voce ainda nao possui nenhum link</h1>
             </div>
-        @endif
     </div>
 </section>
 
