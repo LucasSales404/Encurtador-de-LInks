@@ -1,4 +1,6 @@
 @include('partials.app')
+@include('components.alert')
+@include('components.loading-screen')
 
 <section class="p-24 flex flex-col gap-6">
     <div class="title-section">
@@ -40,3 +42,5 @@
 </section>
 
 @vite('resources/js/links.js')
+@vite('resources/js/alert.js')
+@vite('resources/js/showUrl.js')
