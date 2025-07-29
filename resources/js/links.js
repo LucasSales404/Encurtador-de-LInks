@@ -2,6 +2,10 @@ import { showAlert } from "./alert.js";
 import { showLoadingScreen } from "./loading-screen.js";
 const screenLoading = document.querySelector("#loadingScreen");
 const buttonDelete = document.querySelectorAll(".button-delete");
+const withoutlink = document.querySelector('.without-link');
+if(withoutlink.dataset.count > 0){
+    withoutlink.classList.add('hidden');
+}
 buttonDelete.forEach((button) => {
     button.addEventListener("click", async () => {
         const id = button.dataset.id;
@@ -28,6 +32,7 @@ buttonDelete.forEach((button) => {
                 throw new Error(result.message || "Erro ao excluir link");
             } else {
                 document.querySelector(`#link-${id}`).remove();
+                withoutlink.classList.remove('hidden');
                 showAlert("Link excluído com sucesso!");
             }
         } catch (err) {
