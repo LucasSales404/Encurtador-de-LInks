@@ -1,11 +1,11 @@
 import { showAlert } from "./alert.js";
+import { hideLoadingScreen } from "./loading-screen.js";
 import { showLoadingScreen } from "./loading-screen.js";
 import { showUrl } from "./showUrl.js";
 
 const inputUrl = document.querySelector("#inputUrl");
 const personalizarLink = document.querySelector("#personalizarLink");
 const caminho = document.querySelector("#caminho");
-const screenLoading = document.querySelector("#loadingScreen");
 if (personalizarLink) {
     personalizarLink.addEventListener("input", () => {
         caminho.textContent = "https://encurtar.link/" + personalizarLink.value;
@@ -14,50 +14,51 @@ if (personalizarLink) {
 const buttonCopy = document.querySelector("#buttonCopy");
 const formEncurtar = document.querySelector("#formEncurtar");
 let urlEncurtada = "";
-if(formEncurtar){
+if (formEncurtar) {
+    formEncurtar.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-formEncurtar.addEventListener("submit", async (e) => {
-    e.preventDefault();
+        const data = {
+            url: inputUrl.value,
+            caminho: personalizarLink.value,
+        };
+        showLoadingScreen("Encurtando seu link");
+        try {
+            const token = document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content");
+            console.log("Dados enviados:", data);
 
-    const data = {
-        url: inputUrl.value,
-        caminho: personalizarLink.value,
-    };
-    showLoadingScreen("Encurtando seu link");
-    try {
-        const token = document
-            .querySelector('meta[name="csrf-token"]')
-            .getAttribute("content");
-        console.log("Dados enviados:", data);
+            const response = await fetch("/store/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "X-CSRF-TOKEN": token,
+                },
+                body: JSON.stringify(data),
+            });
 
-        const response = await fetch("/store/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-                "X-CSRF-TOKEN": token,
-            },
-            body: JSON.stringify(data),
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.log("Erro do backend:", errorData);
-            showAlert(errorData.message || "Erro ao enviar link");
-            throw new Error("Erro ao enviar link");
+            const result = await response.json();
+            if (!response.ok) {
+                console.log('entrou no erro do response');
+                throw new Error(result.message || "Erro ao encurtar link");
+            } else if(result.success){
+                console.log('Encurtada');
+                urlEncurtada = result.short_url;
+                showUrl(urlEncurtada);
+                buttonCopy.classList.remove("hidden");
+            }else if(!result.success){
+                showAlert(result.message);
+            }
+        } catch (err) {
+            console.error(err);
+            showAlert("Erro ao encurtar link");
+            buttonCopy.classList.add("hidden");
+        } finally {
+            hideLoadingScreen();
         }
-
-        const resultado = await response.json();
-        showUrl(resultado.short_url);
-        urlEncurtada = resultado.short_url;
-    } catch (err) {
-        console.error(err);
-        showAlert("Erro ao encurtar link");
-        buttonCopy.classList.add("hidden");
-    } finally {
-        screenLoading.classList.add("hidden"); 
-    }
-});
+    });
 }
 
 document.addEventListener("click", (e) => {

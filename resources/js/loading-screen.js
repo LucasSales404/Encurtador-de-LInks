@@ -4,3 +4,6 @@ export function showLoadingScreen(screen) {
     screenLoading.classList.remove("hidden");
     textScreen.textContent = screen;
 }
+export function hideLoadingScreen() {
+    screenLoading.classList.add("hidden");
+}
