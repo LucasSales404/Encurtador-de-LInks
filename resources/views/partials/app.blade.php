@@ -16,8 +16,10 @@
 
 <body class="bg-neutral-900 text-white relative">
     <header class="flex items-center justify-between w-full h-[80px] px-24" style="background-color: rgb(0, 0, 195)">
-        <div class="name-site">
-            <h1 class="font-signika text-xl font-bold">SnapLink</h1>
+        <div class="name-site cursor-pointer">
+            <a href="/index">
+                <h1 class="font-signika text-xl font-bold">SnapLink</h1>
+            </a>
         </div>
         <nav class=" flex gap-2 justify-center items-center font-medium">
             <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
@@ -29,25 +31,24 @@
                         </div>
                     </div>
                     <div class="name-profile flex justify-center items-center gap-[2px] cursor-pointer ">
-                        <p>{{ $fullName }}</p>
+                        <p class="hover:text-neutral-300">{{ $fullName }}</p>
                         <span class="drop-menu inline-block rotate-90 relative top-[2px]">></span>
                     </div>
                 </div>
-                <div id="profileBar"
-                    class="hidden border-[1px] rounded-[3px] absolute w-[150px] h-[60px] bg-neutral-800 flex flex-col justify-center top-[80px] left-[0px]">
+                <div id="profileBar" style="background-color: rgb(0, 0, 195)"
+                    class="hidden rounded-[3px] absolute w-[150px] h-[80px] flex flex-col justify-center top-[80px] left-[0px]">
 
                     <div
-                        class="triangle absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent border-b-neutral-500">
-                    </div>
-                    <div class="flex flex-col gap-[5px]">
-                        <button class="border-b-[1px] text-start px-4 hover:bg-neutral-700 cursor-pointer">
+                        class="triangle border-b-azulPadrao absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent">                    </div>
+                    <div class="flex flex-col justify-center">
+                        <button class="border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-700 cursor-pointer">
                             Editar Perfil
                         </button>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
                             @csrf
                         </form>
-                        <button class="buttonLogout text-start px-4 hover:bg-neutral-700 cursor-pointer">
+                        <button class="buttonLogout text-start py-2 px-4 hover:bg-blue-700 cursor-pointer">
                             Sair
                         </button>
                     </div>
@@ -55,8 +56,8 @@
                 </div>
             </div>
             <ul class="flex gap-4">
-                <li><a href="/index">Início</a></li>
-                <li><a href="/links">Meus Links</a></li>
+                <li class="hover:text-neutral-300"><a href="/index">Início</a></li>
+                <li class="hover:text-neutral-300"><a href="/links">Meus Links</a></li>
             </ul>
         </nav>
     </header>
