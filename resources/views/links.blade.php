@@ -12,17 +12,17 @@
                 $urlEncurtada = route('redirect', ['slug' => $link->pivot->slug]);
             @endphp
             <div id="link-{{ $link->id }}"
-                class="link w-[600px] p-6 bg-neutral-800 rounded-[5px] flex flex-col gap-3">
+                class="link w-[600px] p-6 bg-azulPadrao rounded-[5px] flex flex-col gap-3">
                 <div class="header-card flex justify-between items-center">
                     <div class="title-card">
-                        <h2 class="font-signika text-[20px] text-blue-600">SnapLink</h2>
+                        <h2 class="font-signika text-[20px] font-bold">SnapLink</h2>
                     </div>
                     <div data-id="{{ $link->id }}"
                         class="button-delete  flex justify-center items-center cursor-pointer">
                         <img class="max-w-[30px]" src="{{ asset('images/icon-delete.png') }}" alt="">
                     </div>
                 </div>
-                <div class="content">
+                <div class="content font-medium">
                     <div class="flex">
                         <p>URL: {{ $link->original_url }}</p>
                     </div>
@@ -30,7 +30,7 @@
                         <p>URL encurtada: {{ $urlEncurtada }}</p>
                     </div>
                     <div class="flex">
-                        <p>Click obtidos: {{ $link->pivot->clicks }}</p>
+                        <p>Clicks obtidos: {{ $link->pivot->clicks }}</p>
                     </div>
                     <div class="flex">
                         <p>Data de criacao: {{ $link->created_at }}</p>
@@ -38,6 +38,12 @@
                 </div>
             </div>
         @endforeach
+        @if($links->count() == 0)
+            <div class="without-link w-full h-[300px] gap-[3px] flex flex-col justify-center items-center">
+                <img src="{{ asset('images/icon-robot.png') }}" alt="">
+                <h1 class="font-medium text-2xl">Voce ainda nao possui nenhum link</h1>
+            </div>
+        @endif
     </div>
 </section>
 

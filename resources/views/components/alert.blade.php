@@ -7,7 +7,7 @@
         </div>
         <div class="content-card w-full flex px-6 flex-col items-center justify-center gap-[15px]">
             <p class="text-card"></p>
-            <button class="button-ok bg-blue-600 rounded-[2px] font-medium w-[80px] h-[35px]">Ok</button>
+            <button class="button-ok bg-azulPadrao rounded-[2px] font-medium w-[80px] h-[35px]">Ok</button>
         </div>
     </div>
 </div>
