@@ -15,3 +15,7 @@ wrapper.addEventListener("mouseleave", () => {
         profileBar.classList.add("hidden");
     }, 200); 
 });
+const profileEdit = document.querySelector(".profile-edit");
+profileEdit.addEventListener("click", () => {
+    window.location.href = "/profile/edit";
+})

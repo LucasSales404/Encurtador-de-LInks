@@ -15,7 +15,7 @@
 </head>
 
 <body class="bg-neutral-900 text-white relative">
-    <header class="flex items-center justify-between w-full h-[80px] px-24" style="background-color: rgb(0, 0, 195)">
+    <header class="flex items-center justify-between w-full h-[80px] px-24 bg-azulPadrao">
         <div class="name-site cursor-pointer">
             <a href="/index">
                 <h1 class="font-signika text-xl font-bold">SnapLink</h1>
@@ -41,14 +41,13 @@
                     <div
                         class="triangle border-b-azulPadrao absolute top-[-10px] left-1/4 -translate-x-1/2 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[10px] border-l-transparent border-r-transparent">                    </div>
                     <div class="flex flex-col justify-center">
-                        <button class="border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-700 cursor-pointer">
-                            Editar Perfil
-                        </button>
-
+                            <button class="profile-edit border-b-[1px] border-blue-600 text-start px-4 py-2 hover:bg-blue-700 cursor-pointer">
+                                Editar Perfil
+                            </button>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
                             @csrf
                         </form>
-                        <button class="buttonLogout text-start py-2 px-4 hover:bg-blue-700 cursor-pointer">
+                        <button  class="buttonLogout text-start py-2 px-4 hover:bg-blue-700 cursor-pointer">
                             Sair
                         </button>
                     </div>

@@ -28,9 +28,13 @@ class ProfileController extends Controller
 
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = Auth::user();
+        $name = $user->name;
+        $parts = explode(' ', $name);
+        $firstName = $parts[0] ?? '';
+        $lastName = $parts[1] ?? '';
+        $fullName = trim($firstName . ' ' . $lastName);
+        return view('profile.edit', compact('user', 'fullName'));
     }
 
     /**
