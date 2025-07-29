@@ -14,24 +14,35 @@ class LinkController extends Controller
 {
 
     public function store(LinkRequest $request)
-    {
-        $slug = $request->caminho ?? Str::random(6);
-
-        while (DB::table('link_user')->where('slug', $slug)->exists()) {
-            $slug = Str::random(6);
-        }
-
-        $link = Link::firstOrCreate([
-            'original_url' => $request->url
-        ]);
-
-        auth()->user()->links()->syncWithoutDetaching([$link->id => ['slug' => $slug]]);
-
+{
+    if ($request->filled('caminho') &&
+        DB::table('link_user')->where('slug', $request->caminho)->exists()) {
         return response()->json([
-            'short_url' => route('redirect', ['slug' => $slug]),
-            'link' => $link
+            'success' => false,
+            'message' => 'Essa personalização já existe, tente usar outra'
         ]);
     }
+
+    $slug = $request->caminho ?: Str::random(6);
+
+    while (DB::table('link_user')->where('slug', $slug)->exists()) {
+        $slug = Str::random(6);
+    }
+
+    $link = Link::firstOrCreate([
+        'original_url' => $request->url
+    ]);
+
+    auth()->user()->links()->syncWithoutDetaching([$link->id => ['slug' => $slug]]);
+
+    return response()->json([
+        'short_url' => route('redirect', ['slug' => $slug]),
+        'link' => $link,
+        'success' => true,
+        'message' => 'Link criado com sucesso'
+    ]);
+}
+
     public function showLinks()
     {
         $user = Auth::user();
@@ -41,7 +52,7 @@ class LinkController extends Controller
         $lastName = $parts[1] ?? '';
         $fullName = trim($firstName . ' ' . $lastName);
         $links = auth()->user()->links()->get();
-        
+
         return view('links', compact('user', 'links', 'fullName'));
     }
     public function destroy(Link $link)
@@ -49,6 +60,7 @@ class LinkController extends Controller
         $link->delete();
         return response()->json([
             'sucess' => true,
-            'message' => 'Link deletado com sucesso']);
+            'message' => 'Link deletado com sucesso'
+        ]);
     }
 }

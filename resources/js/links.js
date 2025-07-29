@@ -2,15 +2,15 @@ import { showAlert } from "./alert.js";
 import { showLoadingScreen } from "./loading-screen.js";
 const screenLoading = document.querySelector("#loadingScreen");
 const buttonDelete = document.querySelectorAll(".button-delete");
-const withoutlink = document.querySelector('.without-link');
-if(withoutlink.dataset.count > 0){
-    withoutlink.classList.add('hidden');
+const withoutlink = document.querySelector(".without-link");
+if (withoutlink.dataset.count > 0) {
+    withoutlink.classList.add("hidden");
 }
 buttonDelete.forEach((button) => {
     button.addEventListener("click", async () => {
         const id = button.dataset.id;
-        if(!confirm("Tem certeza que deseja excluir o link?")) return;
-        showLoadingScreen('Excluindo seu link...');
+        if (!confirm("Tem certeza que deseja excluir o link?")) return;
+        showLoadingScreen("Excluindo seu link...");
         try {
             const token = document
                 .querySelector('meta[name="csrf-token"]')
@@ -25,19 +25,22 @@ buttonDelete.forEach((button) => {
                 },
             });
 
-            const result = await response.json(); 
+            const result = await response.json();
 
             if (!response.ok) {
                 console.error("Erro do backend:", result);
                 throw new Error(result.message || "Erro ao excluir link");
             } else {
                 document.querySelector(`#link-${id}`).remove();
-                withoutlink.classList.remove('hidden');
+                withoutlink.dataset.count--;
+                if (withoutlink.dataset.count < 1) {
+                    withoutlink.classList.remove("hidden");
+                }
                 showAlert("Link excluído com sucesso!");
             }
         } catch (err) {
             console.error(err);
-        }finally {
+        } finally {
             screenLoading.classList.add("hidden");
         }
     });

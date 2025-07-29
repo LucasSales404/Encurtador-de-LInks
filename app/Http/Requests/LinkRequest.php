@@ -23,7 +23,7 @@ class LinkRequest extends FormRequest
     {
         return [
             'url' => 'required|url',
-            'caminho' => 'nullable|string|unique:link_user,slug'
+            'caminho' => 'nullable|string'
         ];
     }
 
