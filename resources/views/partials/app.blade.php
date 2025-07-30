@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
-    <title>Encurta Link</title>
+    <title>SnapLink</title>
 </head>
 
 <body class="bg-neutral-900 text-white relative">
