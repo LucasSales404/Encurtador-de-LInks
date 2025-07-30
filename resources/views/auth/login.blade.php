@@ -4,7 +4,7 @@
 
     <form class="py-12 px-6" method="POST" action="{{ route('login') }}">
         @csrf
-        <div class="title w-full flex justify-center">
+        <div class="title w-full flex justify-center h-[50px]">
             <h1 class="font-medium text-2xl">Login</h1>
         </div>
         <!-- Email Address -->
