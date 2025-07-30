@@ -54,8 +54,10 @@
                 </div>
             @endauth
             <ul class="flex gap-4">
-                <li class="hover:text-neutral-300"><a href="/index">Início</a></li>
-                <li class="hover:text-neutral-300"><a href="/links">Meus Links</a></li>
+                @auth
+                    <li class="hover:text-neutral-300"><a href="/index">Início</a></li>
+                    <li class="hover:text-neutral-300"><a href="/links">Meus Links</a></li>
+                @endauth
                 <li class="hover:text-neutral-300"><a href="/sobre">Sobre</a></li>
                 <li class="hover:text-neutral-300"><a href="/contato">Contato</a></li>
                 <li class="hover:text-neutral-300"><a href="/ajuda">Ajuda</a></li>
