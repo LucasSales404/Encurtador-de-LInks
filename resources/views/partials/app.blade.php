@@ -53,19 +53,45 @@
                     </div>
                 </div>
             @endauth
-            <ul class="flex gap-4">
+            <ul class="flex gap-4 z-40">
                 @auth
-                    <li class="hover:text-neutral-300"><a href="/index">Início</a></li>
-                    <li class="hover:text-neutral-300"><a href="/links">Meus Links</a></li>
+                    <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/index">Início</a></li>
+                    <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>
                 @endauth
-                <li class="hover:text-neutral-300"><a href="/sobre">Sobre</a></li>
-                <li class="hover:text-neutral-300"><a href="/contato">Contato</a></li>
-                <li class="hover:text-neutral-300"><a href="/ajuda">Ajuda</a></li>
-                <li class="hover:text-neutral-300"><a href="/termos">Termos de uso</a></li>
-                <li class="hover:text-neutral-300"><a href="/politica">Politica de privacidade</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/sobre">Sobre</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/contato">Contato</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/ajuda">Ajuda</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/termos">Termos de uso</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/politica">Politica de privacidade</a>
+                </li>
             </ul>
         </nav>
     </header>
+    <main class="">
+        @yield('content')
+    </main>
+
+    <footer class="w-full h-[180px] bg-neutral-800 px-24 flex justify-between items-center ">
+        <div class="logo  w-[350px] flex justify-center items-center ">
+            <a href="/index">
+                <img class="w-[300px]" src="{{ asset('images/logo.png') }}" alt="">
+            </a>
+        </div>
+        <div class="copyRight ">
+            <p class="text-neutral-500">SnapLink © 2025 - Todos os direitos reservados</p>
+        </div>
+        <div class="footer-content ">
+            <ul class="grid grid-cols-2 gap-4 z- text-neutral-500 w-[350px]">
+                <li class="hover:text-neutral-300 "><a href="/sobre">Sobre</a></li>
+                <li class="hover:text-neutral-300 "><a href="/contato">Contato</a></li>
+                <li class="hover:text-neutral-300 "><a href="/ajuda">Ajuda</a></li>
+                <li class="hover:text-neutral-300 "><a href="/termos">Termos de uso</a></li>
+                <li class="hover:text-neutral-300 "><a href="/politica">Politica de privacidade</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
     @vite('resources/js/menuBar.js')
     @vite('resources/js/logout.js')
 

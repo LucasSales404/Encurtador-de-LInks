@@ -51,7 +51,6 @@
                     {{ __('Entrar') }}
                 </a>
             </div>
-
         </div>
     </form>
 </x-guest-layout>

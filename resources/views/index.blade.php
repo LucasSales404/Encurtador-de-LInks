@@ -1,10 +1,11 @@
-@include('partials.app')
+@extends('partials.app')
 @include('components.card-view')
 @include('components.loading-screen')
 @include('components.alert')
-<main class="">
+
+@section('content')
     <section
-        class="px-24 flex-col flex items-center justify-between gap-32 pt-28 pb-14 h-full w-full bg-neutral-900 text-white py-[20px]">
+        class="px-24 flex-col flex items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
         <div class="encurtar-content">
             <div class="title-section flex justify-center h-[60px]">
                 <h2 class="font-medium text-2xl">Encurte seu link aqui</h2>
@@ -30,9 +31,10 @@
                     class="rounded-[3px] border-0 w-full h-[45px] font-medium bg-azulPadrao hover:bg-blue-700">Encurtar</button>
             </form>
         </div>
-        <div class="cards-features w-[750px] h-[300px] flex gap-[15px]">
+
+        <div class="cards-features w-[750px] h-[300px] flex gap-[15px] ">
             <div
-                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
+                class="card hover:bg-neutral-700 hover:scale-[1.05] w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
                     <h1 class="font-medium text-[18px] ">Estatisticas</h1>
                 </div>
@@ -45,7 +47,7 @@
             </div>
 
             <div
-                class="card w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
+                class="card hover:bg-neutral-700 hover:scale-[1.05] w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
                     <h1 class="font-medium text-[18px] ">Site Grátis</h1>
                 </div>
@@ -59,7 +61,7 @@
             </div>
 
             <div
-                class="card w-[250px] h-[250px] bg-neutral-800 p-6 flex justify-center items-center flex-col rounded-[5px] gap-[12px]">
+                class="card hover:bg-neutral-700 hover:scale-[1.05] w-[250px] h-[250px] bg-neutral-800 p-6 flex justify-center items-center flex-col rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
                     <h1 class="font-medium text-[18px] ">URL Curtas</h1>
                 </div>
@@ -73,7 +75,7 @@
             </div>
         </div>
     </section>
-</main>
+@endsection
 @vite('resources/js/alert.js')
 @vite('resources/js/showUrl.js')
 @vite('resources/js/index.js')
