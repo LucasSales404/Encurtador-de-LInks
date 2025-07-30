@@ -15,13 +15,13 @@
 </head>
 
 <body class="bg-neutral-900 text-white relative">
-    <header class="flex items-center flex-col-reverse bg-azulPadrao relative w-full h-[190px]  justify-end">
-        <div class="name-site cursor-pointer w-full h-[120px] bg-neutral-800 flex justify-center items-center">
+    <header class="flex items-center bg-azulPadrao relative w-full h-[90px] px-24 justify-between">
+        <div class="name-site cursor-pointer  flex justify-center items-center">
             <a href="/index">
-                <img class="w-[220px]" src="{{ asset('images/logo.png') }}" alt="">
+                <img class="w-[170px]" src="{{ asset('images/logo.png') }}" alt="">
             </a>
         </div>
-        <nav class=" flex gap-7 justify-center items-center font-medium w-full bg-azulPadrao  h-[70px]">
+        <nav class=" flex gap-7 justify-center items-center font-medium  bg-azulPadrao ">
             @auth
                 <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
                     <div class="profile flex items-center gap-[4px]">
@@ -61,8 +61,6 @@
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/sobre">Sobre</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/contato">Contato</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/ajuda">Ajuda</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/termos">Termos de uso</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/politica">Politica de privacidade</a>
                 </li>
             </ul>
         </nav>
