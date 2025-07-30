@@ -1,5 +1,5 @@
   <div id="contactForm"
-      class=" absolute top-[90px] backdrop-blur-sm bg-black/30 z-40 form-contato w-full h-[calc(100vh-10px)]  flex justify-center items-center ">
+      class=" absolute hidden top-[90px] backdrop-blur-sm bg-black/30 z-40 form-contato w-full h-[calc(100vh-10px)]  flex justify-center items-center ">
       <div class="form-content p-10 bg-neutral-900 rounded-[5px]">
           <div class="flex">
               <div class="title-form w-full flex justify-center h-[60px]">
