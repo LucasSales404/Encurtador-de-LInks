@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('links', [LinkController::class,'showLinks'])->name('links');
     Route::delete('links/delete/{link}', [LinkController::class,'destroy'])->name('delete');
 });
-
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
 
  Route::get('/r/{slug}', [RedirectController::class,'redirect'])->name('redirect');
