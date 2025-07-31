@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/js/loading-screen.js',
                 'resources/js/index.js',
                 'resources/js/pasteLink.js',
+                'resources/js/contact.js',
             ],
             refresh: true,
         }),
