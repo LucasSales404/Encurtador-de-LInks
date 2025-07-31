@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-# Instalações de pacotes do sistema (mantem essa parte como está)
+# Instalações de pacotes do sistema
 RUN apt-get update --fix-missing && apt-get install -y \
     git \
     unzip \
@@ -24,21 +24,24 @@ COPY . .
 # Instalar dependências do Composer
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Configurar permissões (importante para Laravel/Nginx)
-RUN usermod -u 1000 www-data
-RUN chown -R www-data:www-data /var/www/html
-RUN find /var/www/html -type f -exec chmod 664 {} +
-RUN find /var/www/html -type d -exec chmod 775 {} +
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Configurar permissões
+RUN usermod -u 1000 www-data \
+    && chown -R www-data:www-data /var/www/html \
+    && find /var/www/html -type f -exec chmod 664 {} + \
+    && find /var/www/html -type d -exec chmod 775 {} + \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Copiar configuração do Nginx
-# VERIFIQUE A CAPITALIZAÇÃO DE "Nginx" AQUI!
 COPY nginx/conf.d/default.conf /etc/nginx/sites-available/default
-RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-RUN rm -rf /etc/nginx/sites-enabled/default.conf # Remover a conf padrão do Nginx, se existir
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default \
+    && rm -rf /etc/nginx/sites-enabled/default.conf
 
-# Expor a porta 80
+# Copiar script de inicialização
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Expor a porta (apenas informativo)
 EXPOSE 80
 
-# NOVO CMD: Voltar à forma direta de iniciar PHP-FPM e Nginx
-CMD ["sh", "-c", "php-fpm && nginx -g 'daemon off;'"]
+# Comando de inicialização
+CMD ["/start.sh"]
