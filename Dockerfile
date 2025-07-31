@@ -40,6 +40,5 @@ RUN rm -rf /etc/nginx/sites-enabled/default.conf # Remover a conf padrão do Ngi
 # Expor a porta 80
 EXPOSE 80
 
-# NOVO CMD: Iniciar PHP-FPM e Nginx de forma mais robusta e manter o contêiner vivo
-# Este comando complexo inicia ambos e direciona os logs para a saída padrão.
-CMD service php8.2-fpm start && nginx -g 'daemon off;'
+# NOVO CMD: Voltar à forma direta de iniciar PHP-FPM e Nginx
+CMD ["sh", "-c", "php-fpm && nginx -g 'daemon off;'"]
