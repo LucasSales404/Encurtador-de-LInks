@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
+Route::post('/contact/send', [PageController::class, 'send'])->name('contact.send');
+
 
  Route::get('/r/{slug}', [RedirectController::class,'redirect'])->name('redirect');
 require __DIR__.'/auth.php';
