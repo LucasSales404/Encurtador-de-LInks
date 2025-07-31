@@ -2,7 +2,7 @@
 @include('components.card-view')
 @include('components.loading-screen')
 @include('components.alert')
-
+@include('components.contact')
 @section('content')
     <section
         class="px-24 flex-col flex items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
@@ -80,3 +80,4 @@
 @vite('resources/js/showUrl.js')
 @vite('resources/js/index.js')
 @vite('resources/js/pasteLink.js')
+@vite('resources/js/contact.js')

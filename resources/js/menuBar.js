@@ -1,3 +1,5 @@
+import { showFormContact } from "./contact";
+
 const wrapper = document.querySelector(".profile-content");
 const profileBar = document.querySelector("#profileBar");
 const dropMenu = document.querySelector(".drop-menu");
@@ -18,4 +20,10 @@ wrapper.addEventListener("mouseleave", () => {
 const profileEdit = document.querySelector(".profile-edit");
 profileEdit.addEventListener("click", () => {
     window.location.href = "/profile/edit";
+})
+const buttonContact = document.querySelectorAll(".buttonContact");
+buttonContact.forEach((button) => {
+    button.addEventListener("click", () => {
+        showFormContact();
+    })
 })

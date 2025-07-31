@@ -58,8 +58,8 @@
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/index">Início</a></li>
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>
                 @endauth
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/sobre">Sobre</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/contato">Contato</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/about">Sobre</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] buttonContact cursor-pointer" >Contato</li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/ajuda">Ajuda</a></li>
                 </li>
             </ul>
@@ -80,8 +80,8 @@
         </div>
         <div class="footer-content ">
             <ul class="grid grid-cols-2 gap-4 z- text-neutral-500 w-[350px]">
-                <li class="hover:text-neutral-300 "><a href="/sobre">Sobre</a></li>
-                <li class="hover:text-neutral-300 "><a href="/contato">Contato</a></li>
+                <li class="hover:text-neutral-300 "><a href="/about">Sobre</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] cursor-pointer buttonContact">Contato</li>
                 <li class="hover:text-neutral-300 "><a href="/ajuda">Ajuda</a></li>
                 <li class="hover:text-neutral-300 "><a href="/termos">Termos de uso</a></li>
                 <li class="hover:text-neutral-300 "><a href="/politica">Politica de privacidade</a>
@@ -92,6 +92,8 @@
 
     @vite('resources/js/menuBar.js')
     @vite('resources/js/logout.js')
+    @vite('resources/js/contact.js')
+
 
 </body>
 
