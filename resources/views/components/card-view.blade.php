@@ -1,4 +1,4 @@
-<div id="contentUrl" class="absolute hidden z-40 w-full h-[calc(100vh-80px)] flex justify-center items-center backdrop-blur-sm bg-black/30">
+<div id="contentUrl" class="absolute hidden z-40 w-full h-[calc(100vh-50px)] flex justify-center items-center backdrop-blur-sm bg-transparent">
     <div class="card-view bg-neutral-950 w-[500px] h-[180px] flex flex-col gap-4 px-10 justify-center rounded-md">
         <div class="header-card w-full h-[30px] flex items-center justify-between">
             <h2 class="font-medium">SnapLink</h2>

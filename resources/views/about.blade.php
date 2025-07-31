@@ -46,7 +46,12 @@
             </div>
         </div>
         <div class="buttonHome">
-            <button class="bg-azulPadrao w-[200px] h-[40px] rounded-[4px] font-medium"><a href="/index">Voltar para o início</a></button>
+            <a href="/index">
+                <div class="bg-azulPadrao w-[200px] h-[40px] flex justify-center items-center gap-[3px] rounded-[4px] font-medium">
+                    <img class="w-[20px]" src="{{ asset('images/icon-return.png') }}" alt="">
+                    <p class="flex justify-center text-[15px] items-center h-full">Voltar para Home</p>
+                </div>
+            </a>
         </div>
     </section>
 @endsection

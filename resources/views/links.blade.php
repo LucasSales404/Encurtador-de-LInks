@@ -3,12 +3,12 @@
 @include('components.loading-screen')
 @include('components.alert')
 @section('content')
-    <section class="p-24 flex flex-col gap-6">
+    <section class="p-24 flex flex-col gap-6 h-[calc(100vh-80px)]">
         <div class="title-section">
             <h1 class="font-medium text-2xl">Meus Links</h1>
         </div>
 
-        <div class="links flex flex-col gap-6 w-full h-[450px]">
+        <div class="links flex flex-col gap-6 w-full">
             @foreach ($links as $link)
                 @php
                     $urlEncurtada = route('redirect', ['slug' => $link->pivot->slug]);
@@ -40,7 +40,7 @@
                 </div>
             @endforeach
             <div data-count="{{ $links->count() }}"
-                class=" without-link w-full h-[300px] gap-[3px] flex flex-col justify-center items-center">
+                class=" without-link w-full h-[calc(100vh-300px)] flex flex-col justify-center items-center">
                 <img src="{{ asset('images/icon-robot.png') }}" alt="">
                 <h1 class="font-medium text-2xl">Voce ainda nao possui nenhum link</h1>
             </div>

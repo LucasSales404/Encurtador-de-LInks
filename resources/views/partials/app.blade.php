@@ -53,7 +53,7 @@
                     </div>
                 </div>
             @endauth
-            <ul class="flex gap-4 z-40">
+            <ul class="flex gap-4 ">
                 @auth
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/index">Início</a></li>
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>

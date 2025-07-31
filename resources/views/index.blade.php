@@ -13,8 +13,8 @@
             <form action="" id="formEncurtar" class="flex flex-col gap-[10px] w-[500px]">
                 <div class="input-content w-[500px] flex flex-col gap-[2px] relative">
                     <label class="font-medium" for="url">URL</label>
-                    <input id="inputUrl" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px]" required
-                        placeholder="Insira seu link aqui" type="text" name="url" id="url">
+                    <input id="inputUrl" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px] bg-no-repeat bg-[15px_center] px-[45px]" required
+                        placeholder="Insira seu link aqui" type="text" name="url" id="url" style="background-image: url('images/icon-link.png'); background-size:20px;">
                     <div id="buttonPaste"
                         class="paste w-[45px] h-[45px] cursor-pointer absolute top-[25px] right-0 flex items-center justify-center">
                         <img class="max-w-[20px]" src="{{ asset('images/icon-paste.png') }}" alt="">
@@ -22,8 +22,8 @@
                 </div>
                 <div class="input-content w-[500px] flex flex-col gap-[2px]">
                     <label class="font-medium" for="url">Personalizar Link</label>
-                    <input id="personalizarLink" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px]"
-                        placeholder="Defina o caminho personalizado" type="text" name="url" id="url">
+                    <input id="personalizarLink" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px] bg-no-repeat bg-[15px_center] px-[45px]"
+                        placeholder="Defina o caminho personalizado" type="text" name="url" id="url" style="background-image: url('images/icon-edit.png'); background-size:20px;">
                 </div>
                 <p class="text-[13px] text-neutral-300">Seu link ficará assim: <span
                         id="caminho">https://SnapLink/</span></p>
