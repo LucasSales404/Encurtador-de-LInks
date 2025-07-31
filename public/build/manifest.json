@@ -1,0 +1,86 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-DKzVNX4j.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/alert.js": {
+    "file": "assets/alert-BE4xWb8l.js",
+    "name": "alert",
+    "src": "resources/js/alert.js",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DtCVKgHt.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/contact.js": {
+    "file": "assets/contact-DGDHheTD.js",
+    "name": "contact",
+    "src": "resources/js/contact.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/alert.js"
+    ]
+  },
+  "resources/js/index.js": {
+    "file": "assets/index-UHV1O0Ch.js",
+    "name": "index",
+    "src": "resources/js/index.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/alert.js",
+      "resources/js/loading-screen.js",
+      "resources/js/showUrl.js"
+    ]
+  },
+  "resources/js/links.js": {
+    "file": "assets/links-CWryleM0.js",
+    "name": "links",
+    "src": "resources/js/links.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/alert.js",
+      "resources/js/loading-screen.js"
+    ]
+  },
+  "resources/js/loading-screen.js": {
+    "file": "assets/loading-screen-CuIDJiJ1.js",
+    "name": "loading-screen",
+    "src": "resources/js/loading-screen.js",
+    "isEntry": true
+  },
+  "resources/js/logout.js": {
+    "file": "assets/logout-DXckF9F6.js",
+    "name": "logout",
+    "src": "resources/js/logout.js",
+    "isEntry": true
+  },
+  "resources/js/menuBar.js": {
+    "file": "assets/menuBar-Cd2LCu3k.js",
+    "name": "menuBar",
+    "src": "resources/js/menuBar.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/contact.js",
+      "resources/js/alert.js"
+    ]
+  },
+  "resources/js/pasteLink.js": {
+    "file": "assets/pasteLink-BxVvSFJF.js",
+    "name": "pasteLink",
+    "src": "resources/js/pasteLink.js",
+    "isEntry": true
+  },
+  "resources/js/showUrl.js": {
+    "file": "assets/showUrl-Che5ZuxD.js",
+    "name": "showUrl",
+    "src": "resources/js/showUrl.js",
+    "isEntry": true
+  }
+}

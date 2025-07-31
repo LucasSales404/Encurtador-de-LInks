@@ -1,0 +1,1 @@
+const t=document.querySelector(".content-alert"),o=document.querySelector(".button-ok");o.addEventListener("click",()=>{t.classList.add("hidden")});function c(e){t.classList.remove("hidden");const n=document.querySelector(".text-card");n.textContent=e}export{c as s};

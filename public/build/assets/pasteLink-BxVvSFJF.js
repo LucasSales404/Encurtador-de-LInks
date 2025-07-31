@@ -1,0 +1,1 @@
+const e=document.querySelector("#buttonPaste"),c=document.querySelector("#inputUrl");e&&e.addEventListener("click",async()=>{try{const t=await navigator.clipboard.readText();c.value=t}catch(t){console.log(t)}});

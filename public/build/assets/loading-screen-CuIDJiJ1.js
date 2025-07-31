@@ -1,0 +1,1 @@
+const t=document.querySelector("#textScreen"),e=document.querySelector("#loadingScreen");function c(n){e.classList.remove("hidden"),t.textContent=n}function o(){e.classList.add("hidden")}export{o as h,c as s};
