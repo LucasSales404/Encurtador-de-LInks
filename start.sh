@@ -1,9 +1,9 @@
 #!/bin/sh
-# Substituir a variável de ambiente $PORT no arquivo do Nginx
+# Substitui a variável $PORT no arquivo de configuração do Nginx
 envsubst '$PORT' < /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
 
-# Iniciar PHP-FPM em background
+# Inicia o PHP-FPM em background
 php-fpm -D
 
-# Iniciar o Nginx em foreground (mantém o container ativo)
+# Inicia o Nginx em foreground (mantém o container rodando)
 nginx -g 'daemon off;'
