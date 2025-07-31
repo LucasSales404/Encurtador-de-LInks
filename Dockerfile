@@ -1,6 +1,7 @@
 FROM php:8.2-fpm
 
 # Evitar problemas de cache e pacotes antigos
+# Tudo em uma única instrução RUN
 RUN apt-get update --fix-missing && apt-get install -y \
     git \
     unzip \
@@ -8,24 +9,21 @@ RUN apt-get update --fix-missing && apt-get install -y \
     libpng-dev \
     libonig-dev \
     nginx \
-    postgresql-client \ # <-- Certifique-se de que termina com '\' ou é a última linha antes do '&&'
-    # Extensões PHP e outros comandos
+    postgresql-client \
     && docker-php-ext-install pdo_pgsql mbstring zip bcmath
-    # ... (restante do seu Dockerfile) ...
 
 # Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer # <-- ALTERADO: usar :latest para a versão mais recente e robusta
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# NOVO: Copiar configuração do Nginx
-# Certifique-se de que você tem um arquivo default.conf em .docker/nginx/ na raiz do seu projeto
+# Copiar configuração do Nginx (certifique-se de que o arquivo existe em .docker/nginx/default.conf)
 COPY .docker/nginx/default.conf /etc/nginx/sites-available/default
 RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 RUN rm -rf /etc/nginx/sites-enabled/default.conf # Remover a conf padrão do Nginx, se existir
 
-# NOVO: Expor a porta 80
+# Expor a porta 80
 EXPOSE 80
 
-# NOVO: Comando para iniciar PHP-FPM e Nginx
+# Comando para iniciar PHP-FPM e Nginx
 CMD ["sh", "-c", "php-fpm && nginx -g 'daemon off;'"]
