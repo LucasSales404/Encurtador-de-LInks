@@ -7,10 +7,11 @@ RUN apt-get update --fix-missing && apt-get install -y \
     libzip-dev \
     libpng-dev \
     libonig-dev \
-    nginx \              # <-- NOVO: Instala o Nginx
-    postgresql-client \  # <-- NOVO: Cliente para PostgreSQL
-    # Extensões PHP
-    && docker-php-ext-install pdo_pgsql mbstring zip bcmath # <-- ALTERADO: de pdo_mysql para pdo_pgsql
+    nginx \
+    postgresql-client \ # <-- Certifique-se de que termina com '\' ou é a última linha antes do '&&'
+    # Extensões PHP e outros comandos
+    && docker-php-ext-install pdo_pgsql mbstring zip bcmath
+    # ... (restante do seu Dockerfile) ...
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer # <-- ALTERADO: usar :latest para a versão mais recente e robusta
