@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>SnapLink</title>
 </head>
 
@@ -59,7 +60,7 @@
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>
                 @endauth
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/about">Sobre</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05] buttonContact cursor-pointer" >Contato</li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] buttonContact cursor-pointer">Contato</li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/ajuda">Ajuda</a></li>
                 </li>
             </ul>
@@ -93,7 +94,6 @@
     @vite('resources/js/menuBar.js')
     @vite('resources/js/logout.js')
     @vite('resources/js/contact.js')
-
 
 </body>
 
