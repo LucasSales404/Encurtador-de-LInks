@@ -41,8 +41,5 @@ RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default \
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Expor a porta (apenas informativo)
-EXPOSE 80
-
 # Comando de inicialização
 CMD ["/start.sh"]
