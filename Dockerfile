@@ -1,8 +1,9 @@
 FROM php:8.2-fpm
 
 # Evitar problemas de cache e pacotes antigos
-# Separar update, install e limpeza
-RUN apt-get update --fix-missing && apt-get install -y \
+# Instalação dos pacotes do sistema
+RUN apt-get update --fix-missing && \
+    apt-get install -y \
     git \
     unzip \
     libzip-dev \
@@ -10,10 +11,11 @@ RUN apt-get update --fix-missing && apt-get install -y \
     libonig-dev \
     nginx \
     postgresql-client \
-    # Limpa o cache do apt para reduzir o tamanho da imagem
-    && rm -rf /var/lib/apt/lists/* \
-    # Extensões PHP
-    && docker-php-ext-install pdo_pgsql mbstring zip bcmath
+    libpq-dev \ # <-- NOVO: Pacote de desenvolvimento para PostgreSQL
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalação das extensões PHP
+RUN docker-php-ext-install pdo_pgsql mbstring zip bcmath
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
