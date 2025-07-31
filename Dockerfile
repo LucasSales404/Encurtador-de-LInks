@@ -18,7 +18,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copiar configuração do Nginx (certifique-se de que o arquivo existe em .docker/nginx/default.conf)
-COPY .docker/nginx/default.conf /etc/nginx/sites-available/default
+COPY Nginx/conf.d/default.conf /etc/nginx/sites-available/default
 RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 RUN rm -rf /etc/nginx/sites-enabled/default.conf # Remover a conf padrão do Nginx, se existir
 
