@@ -10,7 +10,6 @@ RUN apt-get update --fix-missing && apt-get install -y \
     nginx \
     postgresql-client \
     libpq-dev \
-    gettext-base \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install pdo_pgsql mbstring zip bcmath
 
