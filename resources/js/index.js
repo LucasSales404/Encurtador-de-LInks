@@ -42,7 +42,7 @@ if (formEncurtar) {
             const result = await response.json();
             if (!response.ok) {
                 console.log('entrou no erro do response');
-                throw new Error(result.message || "Erro ao encurtar link");
+                throw new Error(result.message || "Erro ao encurtar linkdddddddd");
             } else if(result.success){
                 console.log('Encurtada');
                 urlEncurtada = result.short_url;
@@ -52,8 +52,7 @@ if (formEncurtar) {
                 showAlert(result.message);
             }
         } catch (err) {
-            console.error(err);
-            showAlert("Erro ao encurtar link");
+            showAlert(err.message);
             buttonCopy.classList.add("hidden");
         } finally {
             hideLoadingScreen();
