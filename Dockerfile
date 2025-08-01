@@ -36,9 +36,6 @@ RUN usermod -u 1000 www-data \
     && find /var/www/html -type d -exec chmod 775 {} + \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# **Executa as migrations**
-RUN php artisan migrate --force
-
 COPY nginx/conf.d/default.conf /etc/nginx/sites-available/default
 RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default \
     && rm -rf /etc/nginx/sites-enabled/default.conf
