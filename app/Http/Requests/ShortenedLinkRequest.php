@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LinkRequest extends FormRequest
+class ShortenedLinkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class LinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => 'required|url',
-            'caminho' => 'nullable|string'
+            'slug' => 'nullable|alpha_num|min:3',
+            'original_url' => 'required|url',
         ];
     }
-
 }

@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CNabsf49.css",
+    "file": "assets/app-CoAC_sML.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -19,6 +19,12 @@
     "src": "resources/js/app.js",
     "isEntry": true
   },
+  "resources/js/btnLogin.js": {
+    "file": "assets/btnLogin-o24YMM6P.js",
+    "name": "btnLogin",
+    "src": "resources/js/btnLogin.js",
+    "isEntry": true
+  },
   "resources/js/contact.js": {
     "file": "assets/contact-DGDHheTD.js",
     "name": "contact",
@@ -29,7 +35,7 @@
     ]
   },
   "resources/js/index.js": {
-    "file": "assets/index-UHV1O0Ch.js",
+    "file": "assets/index-CPVH5lLB.js",
     "name": "index",
     "src": "resources/js/index.js",
     "isEntry": true,

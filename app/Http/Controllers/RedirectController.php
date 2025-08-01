@@ -1,28 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Link; 
+use App\Models\Click;
+use App\Models\Link;
+use App\Models\ShortenedLink;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class RedirectController extends Controller
 {
-    public function redirect($slug)
+    public function redirect($slug, Request $request)
     {
-        $linkUser = DB::table('link_user')->where('slug', $slug)->first();
+        $linkUser = ShortenedLink::where('slug', $slug)->firstOrFail();
+        if (!$linkUser->is_active || !$linkUser->link) {
+        abort(404, 'Link inativo ou inexistente');
+    }
+        $linkUser->increment('total_clicks');
 
-        if (!$linkUser) {
-            abort(404);
-        }
+        $linkUser->clicks()->create([
+            'clicked_at' => now(),
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+        ]);
 
-        DB::table('link_user')->where('slug', $slug)->increment('clicks');
-
-        $link = Link::find($linkUser->link_id);
-
-        if (!$link) {
-            abort(404);
-        }
-
-        return redirect($link->original_url);
+        return redirect($linkUser->link->original_url);
     }
 }
