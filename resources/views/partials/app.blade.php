@@ -107,7 +107,7 @@
     @endauth
     @vite('resources/js/logout.js')
     @vite('resources/js/contact.js')
-    @vite('resources/js/btnLogin')
+    @vite('resources/js/btnLogin.js')
 
 </body>
 
