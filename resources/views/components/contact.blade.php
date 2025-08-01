@@ -1,5 +1,5 @@
   <div id="contactForm"
-      class=" absolute top-[90px] backdrop-blur-sm bg-black/30 z-40 form-contato w-full h-[calc(100vh-10px)]  flex justify-center items-center ">
+      class=" absolute hidden top-[90px] backdrop-blur-sm bg-black/30 z-40 form-contato w-full h-[calc(100vh-10px)]  flex justify-center items-center ">
       <div class="form-content p-10 bg-neutral-900 rounded-[5px]">
           <div class="flex">
               <div class="title-form w-full flex justify-center h-[60px]">
@@ -17,7 +17,7 @@
                   <label class="font-medium" for="url">Mensagem</label>
                   <textarea placeholder="Insira sua mensagem" class="bg-neutral-800 rounded-[3px] h-[120px] border-0 w-full " name="message" required></textarea>
               </div>
-               <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+               <div class="g-recaptcha" data-sitekey="6LcK9pYrAAAAAKVXw2GQx88pB0b-QVLyNTHbVmW-"></div>
               <button type="submit"
                   class="button-submit rounded-[3px] border-0 w-full h-[45px] font-medium bg-azulPadrao hover:bg-blue-700">Enviar</button>
           </form>
