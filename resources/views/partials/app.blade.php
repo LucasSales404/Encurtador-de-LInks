@@ -16,15 +16,16 @@
 </head>
 
 <body class="bg-neutral-900 text-white relative">
-    <header class="flex items-center bg-azulPadrao relative w-full h-[90px] px-24 justify-between">
+    <header class="flex items-center bg-azulPadrao relative w-full sm:full h-[90px] px-8 lg:px-24 justify-between">
         <div class="name-site cursor-pointer  flex justify-center items-center">
             <a href="/index">
                 <img class="w-[170px]" src="{{ asset('images/logo.png') }}" alt="">
             </a>
         </div>
-        <nav class=" flex gap-7 justify-center items-center font-medium  bg-azulPadrao ">
+
+        <nav class="relative gap-7 flex lg:justify-center lg:w-full items-center justify-between font-medium  bg-azulPadrao">
             @auth
-                <div class="profile-content relative  flex flex-col justify-center items-center gap-[3px]">
+                <div class="profile-content relative flex flex-col justify-center items-center gap-[3px]">
                     <div class="profile flex items-center gap-[4px]">
                         <div class="icon-profile">
                             <div class="circle flex items-center justify-center w-[40px] h-[40px] rounded-full bg-blue-500">
@@ -64,20 +65,33 @@
                             <button
                                 class="btnLogin bg-white text-black hover:bg-neutral-900 hover:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px]">Entrar</button>
                         </a>
-                        <a href="./register">
+                        <a href="./register" class="hidden lg:block">
                             <button
                                 class="btnRegister w-[100px] h-[35px] hover:bg-white hover:text-black rounded-[2px] transition-[4s]">Cadastro</button>
                         </a>
                     </div>
                 @endguest
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/index">Início</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/about">Sobre</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05] buttonContact cursor-pointer">Contato</li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/ajuda">Ajuda</a></li>
-                </li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/index">Início</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/about">Sobre</a></li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden buttonContact cursor-pointer">Contato</li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/ajuda">Ajuda</a></li> 
             </ul>
         </nav>
+        <div class="btn-menu-mob lg:hidden block" data-dropped="{{ asset('images/icon-droppedMenu.png') }}" data-undropped="{{ asset('images/icon-menu.png') }}">
+            <img class="w-[45px]" src="{{ asset('images/icon-menu.png') }}" alt="">
+        </div>
     </header>
+    <div class="menu-mob-content w-full py-2 lg:hidden hidden">
+        <ul class="font-medium">
+            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10"><a href="/index">Início</a></li>
+            @auth
+                <li class="hover:text-neutral-300 hover:scale-[1.05]">Meus Links</li>
+            @endauth
+            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10">Sobre</li>
+            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10 buttonContact cursor-pointer">Contato</li>
+            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-neutral-500 px-10">Ajuda</li>
+        </ul>
+    </div>
     <main class="">
         @yield('content')
     </main>
@@ -102,13 +116,10 @@
             </ul>
         </div>
     </footer>
-    @auth
-        @vite('resources/js/menuBar.js')
-    @endauth
+    @vite('resources/js/menuBar.js')
     @vite('resources/js/logout.js')
     @vite('resources/js/contact.js')
     @vite('resources/js/btnLogin.js')
-
 
 
 </body>
