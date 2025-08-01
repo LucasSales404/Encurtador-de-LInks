@@ -17,12 +17,15 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $name = $user->name;
-        $parts = explode(' ', $name);
-        $firstName = $parts[0] ?? '';
-        $lastName = $parts[1] ?? '';
-        $fullName = trim($firstName . ' ' . $lastName);
-        return view('index', compact('user', 'fullName'));
+        if (Auth::user()) {
+            $name = $user->name;
+            $parts = explode(' ', $name);
+            $firstName = $parts[0] ?? '';
+            $lastName = $parts[1] ?? '';
+            $fullName = trim($firstName . ' ' . $lastName);
+            return view('index', compact('user', 'fullName'));
+        }
+        return view('index');
     }
 
 

@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/js/index.js',
                 'resources/js/pasteLink.js',
                 'resources/js/contact.js',
+                'resources/js/btnLogin.js',
             ],
             refresh: true,
         }),

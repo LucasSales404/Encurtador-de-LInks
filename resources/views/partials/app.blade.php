@@ -54,11 +54,23 @@
                     </div>
                 </div>
             @endauth
-            <ul class="flex gap-4 ">
+            <ul class="flex gap-4 justify-center items-center">
                 @auth
-                    <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/index">Início</a></li>
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>
                 @endauth
+                @guest
+                    <div class="group">
+                        <a href="./login">
+                            <button
+                                class="btnLogin bg-white text-black hover:bg-neutral-900 hover:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px]">Entrar</button>
+                        </a>
+                        <a href="./register">
+                            <button
+                                class="btnRegister w-[100px] h-[35px] hover:bg-white hover:text-black rounded-[2px] transition-[4s]">Cadastro</button>
+                        </a>
+                    </div>
+                @endguest
+                <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/index">Início</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/about">Sobre</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05] buttonContact cursor-pointer">Contato</li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/ajuda">Ajuda</a></li>
@@ -90,10 +102,12 @@
             </ul>
         </div>
     </footer>
-
-    @vite('resources/js/menuBar.js')
+    @auth
+        @vite('resources/js/menuBar.js')
+    @endauth
     @vite('resources/js/logout.js')
     @vite('resources/js/contact.js')
+    @vite('resources/js/btnLogin')
 
 </body>
 

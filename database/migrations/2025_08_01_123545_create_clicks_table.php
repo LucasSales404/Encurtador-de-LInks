@@ -10,15 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('link_user', function (Blueprint $table) {
+        Schema::create('clicks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('link_id')->constrained()->onDelete('cascade');
-            $table->string('slug')->unique();
-            $table->unsignedBigInteger('clicks')->default(0);
+            $table->foreignId('shortened_link_id')->constrained('shortened_links')->onDelete('cascade');
+            $table->timestamp('clicked_at')->useCurrent();
+            $table->string('ip_address', 45); 
+            $table->text('user_agent')->nullable();  
+            $table->text('referrer')->nullable();    
             $table->timestamps();
         });
-
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('link_user');
+        Schema::dropIfExists('clicks');
     }
 };

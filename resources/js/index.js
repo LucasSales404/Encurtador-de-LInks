@@ -19,8 +19,8 @@ if (formEncurtar) {
         e.preventDefault();
 
         const data = {
-            url: inputUrl.value,
-            caminho: personalizarLink.value,
+            original_url: inputUrl.value,
+            slug: personalizarLink.value,
         };
         showLoadingScreen("Encurtando seu link");
         try {
