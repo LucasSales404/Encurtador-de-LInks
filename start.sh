@@ -1,3 +1,7 @@
-#!/bin/sh
-php-fpm -D
-nginx -g 'daemon off;'
+#!/bin/bash
+set -e
+
+# Rodar migrations automaticamente no start
+php artisan migrate --force || true
+
+exec php-fpm
