@@ -5,7 +5,7 @@
 @include('components.contact')
 @section('content')
     <section
-        class="px-24 flex-col flex items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
+        class="px-24 lg:flex flex-col hidden items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
         <div class="encurtar-content">
             <div class="title-section flex justify-center h-[60px]">
                 <h2 class="font-medium text-2xl">Encurte seu link aqui</h2>
