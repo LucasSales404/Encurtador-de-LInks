@@ -121,7 +121,6 @@
     @vite('resources/js/contact.js')
     @vite('resources/js/btnLogin.js')
 
-
 </body>
 
 </html>
