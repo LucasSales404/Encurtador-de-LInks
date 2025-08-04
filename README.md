@@ -1,4 +1,7 @@
-![Logo do SnapLink](images/logo.png)
+<p align="center">
+  <img src="images/logo.png" alt="Logo SnapLink" width="200"/>
+</p>
+
 
 
 # **SnapLink - Encurtador de Links**
