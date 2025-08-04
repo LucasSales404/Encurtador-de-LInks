@@ -1,3 +1,6 @@
+![Logo do SnapLink](images/logo.png)
+
+
 # **SnapLink - Encurtador de Links**
 
 [![Laravel](https://img.shields.io/badge/Laravel-10.x-red?logo=laravel)](https://laravel.com/)
