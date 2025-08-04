@@ -23,7 +23,7 @@
             </a>
         </div>
 
-        <nav class="relative gap-7 flex lg:justify-center lg:w-full items-center justify-between font-medium  bg-azulPadrao">
+        <nav class="relative gap-7 lg:flex lg:justify-end lg:w-full items-center font-medium hidden bg-azulPadrao ">
             @auth
                 <div class="profile-content relative flex flex-col justify-center items-center gap-[3px]">
                     <div class="profile flex items-center gap-[4px]">
@@ -55,12 +55,12 @@
                     </div>
                 </div>
             @endauth
-            <ul class="flex gap-4 justify-center items-center">
+            <ul class="flex gap-4 justify-center items-center ">
                 @auth
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>
                 @endauth
                 @guest
-                    <div class="group">
+                    <div class="group flex">
                         <a href="./login">
                             <button
                                 class="btnLogin bg-white text-black hover:bg-neutral-900 hover:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px]">Entrar</button>
@@ -73,22 +73,40 @@
                 @endguest
                 <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/index">Início</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/about">Sobre</a></li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden buttonContact cursor-pointer">Contato</li>
-                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/ajuda">Ajuda</a></li> 
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden buttonContact cursor-pointer">
+                    Contato</li>
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/ajuda">Ajuda</a></li>
             </ul>
         </nav>
-        <div class="btn-menu-mob lg:hidden block" data-dropped="{{ asset('images/icon-droppedMenu.png') }}" data-undropped="{{ asset('images/icon-menu.png') }}">
-            <img class="w-[45px]" src="{{ asset('images/icon-menu.png') }}" alt="">
+        <div class="flex items-center justify-between lg:hidden gap-4">
+            <a href="./login">
+                <button
+                    class="btnLogin bg-white text-black active:bg-neutral-900 active:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px] font-medium">Entrar</button>
+            </a>
+            <div class="btn-menu-mob lg:hidden block" data-dropped="{{ asset('images/icon-droppedMenu.png') }}"
+                data-undropped="{{ asset('images/icon-menu.png') }}">
+                <img class="w-[45px]" src="{{ asset('images/icon-menu.png') }}" alt="">
+            </div>
         </div>
     </header>
-    <div class="menu-mob-content w-full py-2 lg:hidden hidden">
+    <div class="menu-mob-content w-full py-2 lg:hidden hidden ">
         <ul class="font-medium">
-            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10"><a href="/index">Início</a></li>
+            <li
+                class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10 buttonContact cursor-pointer">
+                Cadastrar</li>
+            <li
+                class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10">
+                <a href="/index">Início</a>
+            </li>
             @auth
                 <li class="hover:text-neutral-300 hover:scale-[1.05]">Meus Links</li>
             @endauth
-            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10">Sobre</li>
-            <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10 buttonContact cursor-pointer">Contato</li>
+            <li
+                class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10">
+                Sobre</li>
+            <li
+                class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10 buttonContact cursor-pointer">
+                Contato</li>
             <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-neutral-500 px-10">Ajuda</li>
         </ul>
     </div>
@@ -96,17 +114,17 @@
         @yield('content')
     </main>
 
-    <footer class="w-full h-[180px] bg-neutral-800 px-24 flex justify-between items-center ">
+    <footer class="w-full bg-neutral-800 lg:h-[180px] lg:px-24 px-12 flex lg:py-0 py-8 gap-4 flex-col lg:flex-row justify-between items-center ">
         <div class="logo  w-[350px] flex justify-center items-center ">
             <a href="/index">
-                <img class="w-[300px]" src="{{ asset('images/logo.png') }}" alt="">
+                <img class="lg:w-[300px] w-[180px]" src="{{ asset('images/logo.png') }}" alt="">
             </a>
         </div>
-        <div class="copyRight ">
+        <div class="copyRight lg:text-[16px]  text-[13px] ">
             <p class="text-neutral-500">SnapLink © 2025 - Todos os direitos reservados</p>
         </div>
-        <div class="footer-content ">
-            <ul class="grid grid-cols-2 gap-4 z- text-neutral-500 w-[350px]">
+        <div class="footer-content flex1 justify-center items-center px-4 lg:px-0">
+            <ul class="grid grid-cols-2 lg:gap-4 gap-2 text-neutral-500 ">
                 <li class="hover:text-neutral-300 "><a href="/about">Sobre</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05] cursor-pointer buttonContact">Contato</li>
                 <li class="hover:text-neutral-300 "><a href="/ajuda">Ajuda</a></li>

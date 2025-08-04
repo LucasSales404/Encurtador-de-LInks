@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CoAC_sML.css",
+    "file": "assets/app-Bec_rtuE.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -35,7 +35,7 @@
     ]
   },
   "resources/js/index.js": {
-    "file": "assets/index-CPVH5lLB.js",
+    "file": "assets/index-Dq8gt8jc.js",
     "name": "index",
     "src": "resources/js/index.js",
     "isEntry": true,
@@ -68,7 +68,7 @@
     "isEntry": true
   },
   "resources/js/menuBar.js": {
-    "file": "assets/menuBar-Cd2LCu3k.js",
+    "file": "assets/menuBar-DDWIJvj9.js",
     "name": "menuBar",
     "src": "resources/js/menuBar.js",
     "isEntry": true,

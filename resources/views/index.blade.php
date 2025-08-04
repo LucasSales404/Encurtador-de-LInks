@@ -5,13 +5,13 @@
 @include('components.contact')
 @section('content')
     <section
-        class="px-24 lg:flex flex-col hidden items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
-        <div class="encurtar-content">
+        class="lg:px-24 px-8 lg:flex flex-col flex items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
+        <div class="encurtar-content flex lg:items-center flex-col  w-full">
             <div class="title-section flex justify-center h-[60px]">
                 <h2 class="font-medium text-2xl">Encurte seu link aqui</h2>
             </div>
-            <form action="" id="formEncurtar" class="flex flex-col gap-[10px] w-[500px]">
-                <div class="input-content w-[500px] flex flex-col gap-[2px] relative">
+            <form action="" id="formEncurtar" class="flex flex-col gap-[10px] lg:w-[500px] w-full">
+                <div class="input-content lg:w-[500px] w-full flex flex-col gap-[2px] relative">
                     <label class="font-medium" for="url">URL</label>
                     <input id="inputUrl" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px] bg-no-repeat bg-[15px_center] px-[45px]" required
                         placeholder="Insira seu link aqui" type="text" name="original_url" id="url" style="background-image: url('images/icon-link.png'); background-size:20px;">
@@ -20,7 +20,7 @@
                         <img class="max-w-[20px]" src="{{ asset('images/icon-paste.png') }}" alt="">
                     </div>
                 </div>
-                <div class="input-content w-[500px] flex flex-col gap-[2px]">
+                <div class="input-content lg:w-[500px] w-full flex flex-col gap-[2px]">
                     <label class="font-medium" for="url">Personalizar Link</label>
                     <input id="personalizarLink" class="bg-neutral-800 rounded-[3px] border-0 w-full h-[45px] bg-no-repeat bg-[15px_center] px-[45px]"
                         placeholder="Defina o caminho personalizado" type="text" name="slug" id="url" style="background-image: url('images/icon-edit.png'); background-size:20px;">
@@ -32,7 +32,7 @@
             </form>
         </div>
 
-        <div class="cards-features w-[750px] h-[300px] flex gap-[15px] ">
+        <div class="cards-features lg:w-[750px] lg:h-[300px] w-full flex gap-[15px] lg:flex-row flex-col justify-center items-center">
             <div
                 class="card hover:bg-neutral-700 hover:scale-[1.05] w-[250px] h-[250px] p-6 flex justify-center items-center flex-col bg-neutral-800 rounded-[5px] gap-[12px]">
                 <div class="header-card flex justify-center items-center h-[30px]">
