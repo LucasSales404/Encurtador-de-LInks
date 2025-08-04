@@ -1,3 +1,4 @@
+@include('components.contact')
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -19,7 +20,7 @@
     <header class="flex items-center bg-azulPadrao relative w-full sm:full h-[90px] px-8 lg:px-24 justify-between">
         <div class="name-site cursor-pointer  flex justify-center items-center">
             <a href="/index">
-                <img class="w-[170px]" src="{{ asset('images/logo.png') }}" alt="">
+                <img class="lg:w-[170px] w-[140px]" src="{{ asset('images/logo.png') }}" alt="">
             </a>
         </div>
 
@@ -56,22 +57,22 @@
                 </div>
             @endauth
             <ul class="flex gap-4 justify-center items-center ">
+                @guest
+                <div class="group flex">
+                    <a href="./login">
+                        <button
+                        class="btnLogin bg-white text-black hover:bg-neutral-900 hover:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px]">Entrar</button>
+                    </a>
+                    <a href="./register" class="hidden lg:block">
+                        <button
+                        class="btnRegister w-[100px] h-[35px] hover:bg-white hover:text-black rounded-[2px] transition-[4s]">Cadastro</button>
+                    </a>
+                </div>
+                @endguest
+                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/index">Início</a></li>
                 @auth
                     <li class="hover:text-neutral-300 hover:scale-[1.05]"><a href="/links">Meus Links</a></li>
                 @endauth
-                @guest
-                    <div class="group flex">
-                        <a href="./login">
-                            <button
-                                class="btnLogin bg-white text-black hover:bg-neutral-900 hover:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px]">Entrar</button>
-                        </a>
-                        <a href="./register" class="hidden lg:block">
-                            <button
-                                class="btnRegister w-[100px] h-[35px] hover:bg-white hover:text-black rounded-[2px] transition-[4s]">Cadastro</button>
-                        </a>
-                    </div>
-                @endguest
-                <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/index">Início</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden"><a href="/about">Sobre</a></li>
                 <li class="hover:text-neutral-300 hover:scale-[1.05] lg:block hidden buttonContact cursor-pointer">
                     Contato</li>
@@ -79,17 +80,20 @@
             </ul>
         </nav>
         <div class="flex items-center justify-between lg:hidden gap-4">
+            @guest
+                
             <a href="./login">
                 <button
-                    class="btnLogin bg-white text-black active:bg-neutral-900 active:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px] font-medium">Entrar</button>
+                class="btnLogin bg-white text-black active:bg-neutral-900 active:text-white w-[100px] h-[35px] transition-[4s] rounded-[2px] font-medium">Entrar</button>
             </a>
+            @endguest
             <div class="btn-menu-mob lg:hidden block" data-dropped="{{ asset('images/icon-droppedMenu.png') }}"
                 data-undropped="{{ asset('images/icon-menu.png') }}">
-                <img class="w-[45px]" src="{{ asset('images/icon-menu.png') }}" alt="">
+                <img class="w-[40px]" src="{{ asset('images/icon-menu.png') }}" alt="">
             </div>
         </div>
     </header>
-    <div class="menu-mob-content w-full py-2 lg:hidden hidden ">
+    <div class="menu-mob-content w-full py-2 lg:hidden hidden bg-neutral-950">
         <ul class="font-medium">
             <li
                 class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10 buttonContact cursor-pointer">
@@ -99,7 +103,7 @@
                 <a href="/index">Início</a>
             </li>
             @auth
-                <li class="hover:text-neutral-300 hover:scale-[1.05]">Meus Links</li>
+                <li class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10">Meus Links</li>
             @endauth
             <li
                 class=" active:bg-azulPadrao h-[60px] text-[18px] flex items-center border-b-[1px] border-neutral-500 px-10">
