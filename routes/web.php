@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('links', [LinkController::class,'showLinks'])->name('links');
-    Route::delete('links/delete/{link}', [LinkController::class,'destroy'])->name('delete');
+    Route::delete('links/delete/{shortenedLink}', [LinkController::class,'destroy'])->name('delete');
 });
 Route::get('index', [ProfileController::class,'index'])->name('index');
 Route::post('store', [ShortenedLinkController::class,'store'])->name('store');
