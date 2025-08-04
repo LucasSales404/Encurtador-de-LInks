@@ -8,7 +8,7 @@
         class="lg:px-24 px-8 lg:flex flex-col flex items-center justify-between gap-32 pt-28 pb-14  w-full bg-neutral-900 text-white py-[20px]">
         <div class="encurtar-content flex lg:items-center flex-col  w-full">
             <div class="title-section flex justify-center h-[60px]">
-                <h2 class="font-medium text-2xl">Encurte seu link aqui</h2>
+                <h2 class="font-medium lg:text-2xl text-xl">Encurte seu link aqui</h2>
             </div>
             <form action="" id="formEncurtar" class="flex flex-col gap-[10px] lg:w-[500px] w-full">
                 <div class="input-content lg:w-[500px] w-full flex flex-col gap-[2px] relative">
