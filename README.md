@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.png" alt="Logo SnapLink" width="200"/>
+  <img src="public/images/logo.png" alt="Logo SnapLink" width="200"/>
 </p>
 
 
